@@ -120,4 +120,9 @@ class Category extends AdminBase
 
         return show(config('status.success'), '更改状态成功');
     }
+
+    public function dialog()
+    {
+        return View::fetch();
+    }
 }

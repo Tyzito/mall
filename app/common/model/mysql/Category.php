@@ -20,11 +20,19 @@ class Category extends Model
 
     public function getNormalCategorys($field)
     {
+        $order = [
+            "listorder" => "desc",
+            'id' => "desc"
+        ];
+
         $where = [
             'status' => config('status.mysql.table_normal')
         ];
 
-        $result = $this->field($field)->where($where)->select();
+        $result = $this->field($field)
+            ->where($where)
+            ->order($order)
+            ->select();
 
         return $result;
     }
